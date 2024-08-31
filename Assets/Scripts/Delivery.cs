@@ -7,6 +7,9 @@ public class Delivery : MonoBehaviour
 {
     bool hasPackage = false;
 
+    [SerializeField]
+    float timer = 1f;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Ouch!");
@@ -14,10 +17,11 @@ public class Delivery : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Package"))
+        if(other.CompareTag("Package") && !hasPackage)
         {
             Debug.Log("Package picked up");
             hasPackage = true;
+            Destroy(other.gameObject, timer);
         } 
         else if(other.CompareTag("Customer") && hasPackage)
         {
