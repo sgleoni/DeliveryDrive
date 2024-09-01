@@ -8,9 +8,7 @@ public class Delivery : MonoBehaviour
     bool hasPackage = false;
 
     [SerializeField] Color32 hasPackageColor = new Color32(255, 255, 255, 255);
-
     [SerializeField] Color32 noPackageColor = new Color32(255, 255, 255, 255);
-
     [SerializeField] float timer = 1f;
 
     SpriteRenderer spriteRenderer;
